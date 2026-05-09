@@ -3,11 +3,10 @@ pipeline {
 
     tools {
         maven 'Maven-3.9'
-        jdk 'JDK-17'
     }
 
     environment {
-        JAVA_HOME = tool('JDK-17')
+        JAVA_HOME = '/opt/java/openjdk'
     }
 
     options {
