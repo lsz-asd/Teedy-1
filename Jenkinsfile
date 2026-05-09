@@ -6,6 +6,10 @@ pipeline {
         jdk 'JDK-17'
     }
 
+    environment {
+        JAVA_HOME = tool('JDK-17')
+    }
+
     options {
         buildDiscarder(logRotator(numToKeepStr: '10'))
         timestamps()
