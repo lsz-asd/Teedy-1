@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="Teedy Practice 7 PMD Rules"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+
+    <description>
+        Metrics-focused PMD ruleset for Practice 7 (LoC, CC, WMC, CBO, LCOM-related checks).
+    </description>
+
+    <!-- LoC: Non-commenting source statements -->
+    <rule ref="category/java/design.xml/NcssCount" />
+
+    <!-- CC: Cyclomatic complexity (includes class-level complexity aggregation) -->
+    <rule ref="category/java/design.xml/CyclomaticComplexity" />
+
+    <!-- CBO: Coupling between objects -->
+    <rule ref="category/java/design.xml/CouplingBetweenObjects" />
+
+    <!-- WMC-related metric usage -->
+    <rule ref="category/java/design.xml/DataClass" />
+
+    <!-- LCOM-related cohesion signal (low TCC) -->
+    <rule ref="category/java/design.xml/GodClass" />
+</ruleset>

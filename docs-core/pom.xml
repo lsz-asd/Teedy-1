@@ -234,6 +234,15 @@
         <filtering>false</filtering>
       </resource>
     </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <configuration>
+          <outputDirectory>${project.parent.basedir}/target/site/${project.artifactId}</outputDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 
 </project>

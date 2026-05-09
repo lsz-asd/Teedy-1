@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Program Files/Java/**)",
+      "Bash(mvn --version)",
+      "Bash(jenkins --version)",
+      "Read(//c/Program Files/**)",
+      "Bash(sc query *)",
+      "Bash(docker --version)",
+      "Bash(java -version)",
+      "Bash(docker exec jenkins *)",
+      "Bash(docker rm *)",
+      "Bash(docker run *)",
+      "Bash(docker stop *)",
+      "Bash(docker volume *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
+    ]
+  }
+}
