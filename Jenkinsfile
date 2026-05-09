@@ -25,7 +25,7 @@ pipeline {
         stage('Build & Test') {
             steps {
                 echo 'Building project and running tests...'
-                sh 'mvn clean verify -DskipTests=false'
+                sh 'export JAVA_HOME=/opt/java/openjdk && mvn clean verify -DskipTests=false'
             }
             post {
                 success {
@@ -37,14 +37,14 @@ pipeline {
         stage('Package') {
             steps {
                 echo 'Packaging artifacts...'
-                sh 'mvn package -DskipTests=true'
+                sh 'export JAVA_HOME=/opt/java/openjdk && mvn package -DskipTests=true'
             }
         }
 
         stage('Site Documentation') {
             steps {
                 echo 'Generating site documentation...'
-                sh 'mvn site -DskipTests=true'
+                sh 'export JAVA_HOME=/opt/java/openjdk && mvn site -DskipTests=true'
             }
         }
     }
