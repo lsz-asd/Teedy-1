@@ -25,7 +25,7 @@ pipeline {
         stage('Build & Test') {
             steps {
                 echo 'Building project and running tests...'
-                sh 'export JAVA_HOME=/opt/java/openjdk && mvn clean verify -DskipTests=false'
+                sh 'export JAVA_HOME=/opt/java/openjdk && mvn clean install -DskipTests=false'
             }
             post {
                 success {
