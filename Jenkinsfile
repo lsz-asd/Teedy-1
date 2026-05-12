@@ -8,7 +8,7 @@ pipeline {
     environment {
         JAVA_HOME = '/opt/java/openjdk'
         DOCKER_HUB_CREDENTIALS = credentials('dockerhub_credentials')
-        DOCKER_IMAGE = 'lishangzhi/teedy-app'
+        DOCKER_IMAGE = 'lishangzhi/teedy-1'
         DOCKER_TAG = "${env.BUILD_NUMBER}"
     }
 
