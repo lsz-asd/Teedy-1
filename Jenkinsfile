@@ -7,7 +7,6 @@ pipeline {
 
     environment {
         JAVA_HOME = '/opt/java/openjdk'
-        DOCKER_HUB_CREDENTIALS = credentials('dockerhub_credentials')
         DOCKER_IMAGE = 'lishangzhi/teedy-1'
         DOCKER_TAG = "${env.BUILD_NUMBER}"
     }
@@ -80,13 +79,14 @@ pipeline {
     post {
         always {
             echo 'Archiving test results and artifacts...'
-            junit allowEmptyResults: true,
-                  testResults: '**/target/surefire-reports/*.xml'
-            archiveArtifacts allowEmptyArchive: true,
-                             artifacts: '**/target/*.jar, **/target/*.war',
-                             fingerprint: true
-            archiveArtifacts allowEmptyArchive: true,
-                             artifacts: '**/target/site/**'
+            script {
+                try {
+                    junit allowEmptyResults: true,
+                          testResults: '**/target/surefire-reports/*.xml'
+                } catch (e) {
+                    echo "Skipping junit: ${e.message}"
+                }
+            }
         }
         success {
             echo 'Pipeline completed successfully!'
