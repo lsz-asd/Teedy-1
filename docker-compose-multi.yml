@@ -1,0 +1,22 @@
+version: '3'
+services:
+  teedy-8082:
+    image: lsz-asd/teedy:latest
+    container_name: teedy-8082
+    ports:
+      - "8082:8080"
+    restart: unless-stopped
+
+  teedy-8083:
+    image: lsz-asd/teedy:latest
+    container_name: teedy-8083
+    ports:
+      - "8083:8080"
+    restart: unless-stopped
+
+  teedy-8084:
+    image: lsz-asd/teedy:latest
+    container_name: teedy-8084
+    ports:
+      - "8084:8080"
+    restart: unless-stopped
