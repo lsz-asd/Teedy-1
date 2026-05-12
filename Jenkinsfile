@@ -40,7 +40,14 @@ pipeline {
 
         stage('Run Containers') {
             steps {
-                sh 'docker stop teedy-8082 teedy-8083 teedy-8084 2>/dev/null; docker rm teedy-8082 teedy-8083 teedy-8084 2>/dev/null; true'
+                sh '''
+                    docker stop teedy-8082 2>/dev/null || true
+                    docker rm teedy-8082 2>/dev/null || true
+                    docker stop teedy-8083 2>/dev/null || true
+                    docker rm teedy-8083 2>/dev/null || true
+                    docker stop teedy-8084 2>/dev/null || true
+                    docker rm teedy-8084 2>/dev/null || true
+                '''
                 script {
                     docker.image("${env.DOCKER_IMAGE}:${env.DOCKER_TAG}").run('--name teedy-8082 -d -p 8082:8080')
                     docker.image("${env.DOCKER_IMAGE}:${env.DOCKER_TAG}").run('--name teedy-8083 -d -p 8083:8080')
